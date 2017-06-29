@@ -1,0 +1,33 @@
+<dictionaries>
+    <dictionary>
+        <name>taxi_zones</name>
+        <source>
+                <clickhouse>
+                <host>localhost</host>
+                <port>9000</port>
+                <user>default</user>
+                <password></password>
+                <db>test</db>
+                <table>taxi_zones</table>
+            </clickhouse>
+        </source>
+        <lifetime>
+            <min>300</min>
+            <max>360</max>
+        </lifetime>
+        <layout>
+            <flat />
+        </layout>
+        <structure>
+            <id>
+                <name>location_id</name>
+            </id>
+            <attribute>
+                <name>zone</name>
+                <type>String</type>
+                <null_value />
+            </attribute>
+        </structure>
+    </dictionary>
+</dictionaries>
+
