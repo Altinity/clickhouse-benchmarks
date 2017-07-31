@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `ontime`;
-CREATE TABLE IF NOT EXISTS `ontime`.`ontime` (
+CREATE DATABASE IF NOT EXISTS `airline`;
+CREATE TABLE IF NOT EXISTS `airline`.`ontime` (
   `Year` UInt16,
   `Quarter` UInt8,
   `Month` UInt8,

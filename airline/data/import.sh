@@ -23,7 +23,7 @@ for CSV_FILENAME in `ls "$CSV_FILES_DIR"/*.csv`; do
 	if [[ $LINES_NUM < 2 ]]; then
 		echo "NOTICE: too few lines in $CSV_FILENAME, skip import"
 	else
-		tail -n +2 $CSV_FILENAME | clickhouse-client --query="INSERT INTO ontime.ontime ( 
+		tail -n +2 $CSV_FILENAME | clickhouse-client --query="INSERT INTO airline.ontime ( 
 Year, 
 Quarter, 
 Month, 
