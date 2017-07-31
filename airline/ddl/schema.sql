@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS `ontime` (
+CREATE DATABASE IF NOT EXISTS `ontime`;
+CREATE TABLE IF NOT EXISTS `ontime`.`ontime` (
   `Year` UInt16,
   `Quarter` UInt8,
   `Month` UInt8,
@@ -109,4 +110,5 @@ CREATE TABLE IF NOT EXISTS `ontime` (
   `Div5WheelsOff` String,
   `Div5TailNum` String
 )
-ENGINE = MergeTree(FlightDate, (FlightDate, `Year`, `Month`, DepDel15), 8192)
+ENGINE = MergeTree(FlightDate, (FlightDate, `Year`, `Month`, DepDel15), 8192);
+
