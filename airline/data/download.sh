@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Check required commands availability"
+if command -v wget && command -v unzip && command -v clickhouse-client && command -v wc && command -v awk; then
+	echo "Looks like all required commands are available"
+else
+	echo "Please ensure availability of: wget && unzip && clickhouse-client && wc && awk"
+fi
+
 # download database
 
 ZIP_FILES_DIR="zip"
