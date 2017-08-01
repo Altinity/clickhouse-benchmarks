@@ -1,4 +1,5 @@
-CREATE TABLE `ontime` (
+CREATE DATABASE IF NOT EXISTS `airline`;
+CREATE TABLE IF NOT EXISTS `airline`.`ontime` (
   `Year` UInt16,
   `Quarter` UInt8,
   `Month` UInt8,
@@ -110,3 +111,4 @@ CREATE TABLE `ontime` (
   `Div5TailNum` String
 )
 ENGINE = MergeTree(FlightDate, (FlightDate, `Year`, `Month`, DepDel15), 8192);
+

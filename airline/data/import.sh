@@ -15,15 +15,15 @@ for ZIP_FILENAME in `ls "$ZIP_FILES_DIR"/*.zip`; do
 	unzip -o "$ZIP_FILENAME" -d "$CSV_FILES_DIR/"
 done
 
-clickhouse-client -m --query="$(cat ../ddl/schema.sql)"
+clickhouse-client --multiline --multiquery --query="$(cat ../ddl/schema.sql)"
 
 for CSV_FILENAME in `ls "$CSV_FILES_DIR"/*.csv`; do
 	LINES_NUM=`wc -l "$CSV_FILENAME"|awk '{print $1}'`
-	echo "Importing $CSV_FILENAME, see $LINES_NUM lines in it"
+	echo "*** Importing $CSV_FILENAME, see $LINES_NUM lines in it"
 	if [[ $LINES_NUM < 2 ]]; then
 		echo "NOTICE: too few lines in $CSV_FILENAME, skip import"
 	else
-		tail -n +2 $CSV_FILENAME | clickhouse-client --query="INSERT INTO ontime ( 
+		tail -n +2 $CSV_FILENAME | clickhouse-client --query="INSERT INTO airline.ontime ( 
 Year, 
 Quarter, 
 Month, 
